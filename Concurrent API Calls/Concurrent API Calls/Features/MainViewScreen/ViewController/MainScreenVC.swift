@@ -38,13 +38,30 @@ class MainScreenVC: UIViewController, StoryboardInfo {
     }
     
     @IBAction func runRequests(_ sender: Any) {
-        viewModel?.fetchEvery10thCharacter { result in
-            self.updateEveryTenTextView(result)
+        viewModel?.fetchEvery10thCharacter { [weak self] result in
+            switch result {
+            case .success(let result):
+                self?.updateEveryTenTextView(result)
+            case .failure(let error):
+                self?.showError(error)
+            }
         }
         
-        viewModel?.fetchWordCounts { result in
-            let formattedCounts = result.map { "\($0.key): \($0.value)" }.joined(separator: "\n")
-            self.updateWordCountTextView(formattedCounts)
+        viewModel?.fetchWordCounts { [weak self] result in
+            switch result {
+            case .success(let result):
+                let formattedCounts = result.map { "\($0.key): \($0.value)" }.joined(separator: "\n")
+                self?.updateWordCountTextView(formattedCounts)
+            case .failure(let error):
+                self?.showError(error)
+            }
+        }
+    }
+    
+    private func showError(_ error: FetchError) {
+        DispatchQueue.main.async {
+            self.everyTenTextView.text = error.errorMessage
+            self.wordCountTextView.text = error.errorMessage
         }
     }
     
