@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Concurrent API Calls-Concurrent API CallsUITests/Pods-Concurrent API Calls-Concurrent API CallsUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework
+${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework

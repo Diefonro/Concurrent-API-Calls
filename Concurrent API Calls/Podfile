@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '17.0'
+
+target 'Concurrent API Calls' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Concurrent API Calls
+
+  pod 'Alamofire'
+  pod 'SwiftSoup'
+  pod 'OHHTTPStubs/Swift'
+
+  target 'Concurrent API CallsTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Concurrent API CallsUITests' do
+    # Pods for testing
+  end
+
+end
