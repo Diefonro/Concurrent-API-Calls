@@ -16,6 +16,7 @@ class MainScreenVC: UIViewController, StoryboardInfo {
     
     @IBOutlet weak var everyTenTextView: UITextView!
     @IBOutlet weak var wordCountTextView: UITextView!
+    @IBOutlet weak var runRequestsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +41,9 @@ class MainScreenVC: UIViewController, StoryboardInfo {
     @IBAction func runRequests(_ sender: Any) {
         viewModel?.fetchEvery10thCharacter { [weak self] result in
             switch result {
-            case .success(let result):
-                self?.updateEveryTenTextView(result)
+            case .success(let (text, every10thCharacter)):
+                self?.updateEveryTenTextView(text)
+                self?.updateEveryTenTextView(String(every10thCharacter))
             case .failure(let error):
                 self?.showError(error)
             }
@@ -57,7 +59,7 @@ class MainScreenVC: UIViewController, StoryboardInfo {
             }
         }
     }
-    
+
     private func showError(_ error: FetchError) {
         DispatchQueue.main.async {
             self.everyTenTextView.text = error.errorMessage
