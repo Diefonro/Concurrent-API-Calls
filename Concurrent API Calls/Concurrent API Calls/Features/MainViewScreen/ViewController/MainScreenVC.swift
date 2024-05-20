@@ -42,7 +42,6 @@ class MainScreenVC: UIViewController, StoryboardInfo {
             self.everyTenTextView.isHidden = false
             self.everyTenTextView.text = text
             self.runRequestsButton.isUserInteractionEnabled = true
-            
         }
     }
     
@@ -51,7 +50,6 @@ class MainScreenVC: UIViewController, StoryboardInfo {
             self.wordCountTextView.isHidden = false
             self.wordCountTextView.text = text
             self.runRequestsButton.isUserInteractionEnabled = true
-            
         }
     }
     
