@@ -1,0 +1,6 @@
+framework module Pods_Concurrent_API_Calls {
+  umbrella header "Pods-Concurrent API Calls-umbrella.h"
+
+  export *
+  module * { export * }
+}
