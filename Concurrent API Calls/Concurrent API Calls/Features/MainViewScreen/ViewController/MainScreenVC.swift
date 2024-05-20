@@ -16,6 +16,7 @@ class MainScreenVC: UIViewController, StoryboardInfo {
     
     @IBOutlet weak var everyTenTextView: UITextView!
     @IBOutlet weak var wordCountTextView: UITextView!
+    @IBOutlet weak var runRequestsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
