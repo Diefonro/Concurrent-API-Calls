@@ -15,7 +15,6 @@ class CompassLaunchScreenVC: UIViewController, StoryboardInfo {
     @IBOutlet weak var compassLogoImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Splash")
 
     }
 

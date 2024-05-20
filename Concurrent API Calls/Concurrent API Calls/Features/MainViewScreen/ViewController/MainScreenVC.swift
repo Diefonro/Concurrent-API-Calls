@@ -14,8 +14,6 @@ class MainScreenVC: UIViewController, StoryboardInfo {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("MainScreen")
-
     }
 
 }

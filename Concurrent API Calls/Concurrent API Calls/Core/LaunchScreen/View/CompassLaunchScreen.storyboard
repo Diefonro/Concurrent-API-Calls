@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IwA-jo-yha">
-                                <rect key="frame" x="121.66666666666669" y="352.66666666666669" width="150" height="146.99999999999994"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CompassLogo" translatesAutoresizingMaskIntoConstraints="NO" id="IwA-jo-yha">
+                                <rect key="frame" x="121.66666666666669" y="351" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="aVN-c7-a57"/>
                                     <constraint firstAttribute="width" constant="150" id="zqa-s1-OXk"/>
@@ -41,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="trash.square.fill" catalog="system" width="128" height="114"/>
+        <image name="CompassLogo" width="308" height="308"/>
     </resources>
 </document>
