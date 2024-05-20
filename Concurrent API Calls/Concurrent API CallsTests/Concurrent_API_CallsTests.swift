@@ -6,31 +6,74 @@
 //
 
 import XCTest
+import OHHTTPStubs
 @testable import Concurrent_API_Calls
 
-final class Concurrent_API_CallsTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+class NetworkingTests: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        super.tearDown()
+        HTTPStubs.removeAllStubs()
     }
+    
+    func testFetchEvery10thCharacter() {
+            let stubbedResponse = """
+                   <html>
+                       <body>
+                           <p>This is a sample paragraph. It contains some text.</p>
+                           <h2>Heading 2</h2>
+                           <span>Span text</span>
+                       </body>
+                   </html>
+                   """
+            let stubbedData = stubbedResponse.data(using: .utf8)!
+            stub(condition: isHost("example.com")) { _ in
+                return HTTPStubsResponse(data: stubbedData, statusCode: 200, headers: nil)
+            }
+            let viewModel = MainViewScreenViewModel()
+            let expectation = XCTestExpectation(description: "Fetching every 10th character")
+            let expectedEvery10thCharacters: [Character] = ["m", "g", "t"]
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+            viewModel.fetchEvery10thCharacter { result in
+                switch result {
+                case .success(let (text, every10thCharacter)):
+                    XCTAssertFalse(text.isEmpty)
+                    XCTAssertFalse(every10thCharacter.isEmpty)
+                    XCTAssertEqual(every10thCharacter, expectedEvery10thCharacters)
+                    
+                    expectation.fulfill()
+                case .failure(let error):
+                    XCTFail("Fetching every 10th character failed with error: \(error)")
+                }
+            }
         }
+    
+    func testWordCounterRequest() {
+        let expectation = XCTestExpectation(description: "Word counter request")
+        stub(condition: isHost("www.compass.com") && isPath("/about")) { _ in
+            let responseString = "<p>This is a test response</p>"
+            return HTTPStubsResponse(data: responseString.data(using: .utf8)!, statusCode: 200, headers: nil)
+        }
+        
+        let viewModel = MainViewScreenViewModel()
+        viewModel.fetchWordCounts { result in
+            switch result {
+            case .success(let wordCounts):
+                XCTAssertEqual(wordCounts["this"], 1)
+                XCTAssertEqual(wordCounts["is"], 1)
+                XCTAssertEqual(wordCounts["a"], 1)
+                XCTAssertEqual(wordCounts["test"], 1)
+                XCTAssertEqual(wordCounts["response"], 1)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTFail("Expected success, got \(error)")
+            }
+        }
+        
+        wait(for: [expectation], timeout: 5.0)
     }
-
 }
