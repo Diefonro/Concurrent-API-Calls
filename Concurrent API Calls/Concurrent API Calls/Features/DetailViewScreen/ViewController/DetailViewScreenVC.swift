@@ -17,7 +17,7 @@ class DetailViewScreenVC: UIViewController, StoryboardInfo {
     @IBOutlet weak var textView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.isUserInteractionEnabled = false
+        textView.isEditable = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
