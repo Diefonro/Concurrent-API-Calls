@@ -11,6 +11,8 @@
 		4113BDA72BFAF22F008E334B /* CompassLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4113BDA62BFAF22F008E334B /* CompassLaunchScreen.storyboard */; };
 		4113BDA92BFAF29C008E334B /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113BDA82BFAF29C008E334B /* FileInfo.swift */; };
 		4113BDAB2BFAF380008E334B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113BDAA2BFAF380008E334B /* UIImageView+Extension.swift */; };
+		4113BDB02BFB0071008E334B /* DetailViewScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4113BDAF2BFB0071008E334B /* DetailViewScreen.storyboard */; };
+		4113BDB22BFB008B008E334B /* DetailViewScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113BDB12BFB008B008E334B /* DetailViewScreenVC.swift */; };
 		418FF7D72BFAD60400297113 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418FF7D62BFAD60400297113 /* AppDelegate.swift */; };
 		418FF7D92BFAD60400297113 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418FF7D82BFAD60400297113 /* SceneDelegate.swift */; };
 		418FF7DB2BFAD60400297113 /* MainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418FF7DA2BFAD60400297113 /* MainScreenVC.swift */; };
@@ -50,6 +52,8 @@
 		4113BDA62BFAF22F008E334B /* CompassLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompassLaunchScreen.storyboard; sourceTree = "<group>"; };
 		4113BDA82BFAF29C008E334B /* FileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
 		4113BDAA2BFAF380008E334B /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		4113BDAF2BFB0071008E334B /* DetailViewScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewScreen.storyboard; sourceTree = "<group>"; };
+		4113BDB12BFB008B008E334B /* DetailViewScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewScreenVC.swift; sourceTree = "<group>"; };
 		418FF7D32BFAD60400297113 /* Concurrent API Calls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concurrent API Calls.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		418FF7D62BFAD60400297113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		418FF7D82BFAD60400297113 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,9 +195,35 @@
 		4113BDA12BFAF1BD008E334B /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4113BDAC2BFB003D008E334B /* DetailViewScreen */,
 				4113BDA02BFAF1BD008E334B /* MainViewScreen */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		4113BDAC2BFB003D008E334B /* DetailViewScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4113BDAD2BFB004A008E334B /* View */,
+				4113BDAE2BFB004E008E334B /* ViewController */,
+			);
+			path = DetailViewScreen;
+			sourceTree = "<group>";
+		};
+		4113BDAD2BFB004A008E334B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4113BDAF2BFB0071008E334B /* DetailViewScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4113BDAE2BFB004E008E334B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4113BDB12BFB008B008E334B /* DetailViewScreenVC.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		418FF7CA2BFAD60400297113 = {
@@ -370,6 +400,7 @@
 			files = (
 				4113BDA72BFAF22F008E334B /* CompassLaunchScreen.storyboard in Resources */,
 				418FF7E02BFAD60500297113 /* Assets.xcassets in Resources */,
+				4113BDB02BFB0071008E334B /* DetailViewScreen.storyboard in Resources */,
 				418FF7E32BFAD60500297113 /* Base in Resources */,
 				418FF7DE2BFAD60400297113 /* Base in Resources */,
 			);
@@ -500,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4113BDAB2BFAF380008E334B /* UIImageView+Extension.swift in Sources */,
+				4113BDB22BFB008B008E334B /* DetailViewScreenVC.swift in Sources */,
 				418FF7DB2BFAD60400297113 /* MainScreenVC.swift in Sources */,
 				4113BDA42BFAF214008E334B /* CompassLaunchScreenVC.swift in Sources */,
 				418FF7D72BFAD60400297113 /* AppDelegate.swift in Sources */,
