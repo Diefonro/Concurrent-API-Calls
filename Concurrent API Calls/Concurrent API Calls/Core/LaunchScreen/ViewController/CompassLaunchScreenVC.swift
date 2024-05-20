@@ -48,6 +48,7 @@ class CompassLaunchScreenVC: UIViewController, StoryboardInfo {
         UIView.animate(withDuration: 3.0) {
             if let mainView = UIStoryboard(name: MainScreenVC.storyboard, bundle: nil)
                 .instantiateViewController(withIdentifier: MainScreenVC.identifier) as? MainScreenVC {
+                mainView.setViewModel(viewModel: MainViewScreenViewModel())
                 mainView.modalPresentationStyle = .fullScreen
                 self.present(mainView, animated: false)
             }

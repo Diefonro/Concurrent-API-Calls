@@ -7,7 +7,8 @@ target 'Concurrent API Calls' do
 
   # Pods for Concurrent API Calls
 
-  pod 'Alamofire' 
+  pod 'Alamofire'
+  pod 'SwiftSoup'
 
   target 'Concurrent API CallsTests' do
     inherit! :search_paths
