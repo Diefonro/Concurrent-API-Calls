@@ -24,10 +24,28 @@ class MainScreenVC: UIViewController, StoryboardInfo {
     func setViewModel(viewModel: MainViewScreenViewModel) {
         self.viewModel = viewModel
     }
-
+    
+    func updateEveryTenTextView(_ text: String) {
+        DispatchQueue.main.async {
+            self.everyTenTextView.text = text
+        }
+    }
+    
+    func updateWordCountTextView(_ text: String) {
+        DispatchQueue.main.async {
+            self.wordCountTextView.text = text
+        }
+    }
+    
     @IBAction func runRequests(_ sender: Any) {
-        viewModel?.fetchEvery10thCharacter()
-        viewModel?.fetchWordCounts()
+        viewModel?.fetchEvery10thCharacter { result in
+            self.updateEveryTenTextView(result)
+        }
+        
+        viewModel?.fetchWordCounts { result in
+            let formattedCounts = result.map { "\($0.key): \($0.value)" }.joined(separator: "\n")
+            self.updateWordCountTextView(formattedCounts)
+        }
     }
     
 }
